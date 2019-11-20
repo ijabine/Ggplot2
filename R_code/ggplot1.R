@@ -4,10 +4,20 @@ library(cowplot)
 
 # Basics of ggplot2 -------------------------------------------------------
 # The main components of the ggplot system:
-# 1. Data to be visalized, must be dataframe
-# 2. Aesthetics - defines what variables from the dataframe we are going to visualize, and in what way, meaning what is on x and y axes, the color, shape, size, etc.
-# 3. Geom - geometrical elements used to visualize the data
-#
+# 1. Data (variables from a dataframe) to be visalized, must be dataframe, to call: data =
+# 2. Aesthetics - defines what variables from the dataframe we are going to visualize, and in what way, meaning what is on x and y axes, the color, shape, size, etc. Function call aes()
+# 3. Geom - geometrical elements (or primitives) used to visualize the data, called with a family of geom_ functions (e.g. geom_point, geom_histogram, etc.)
+# 4. Coordinate system
+# 5. Stats - 
+# 6. Scales
+# 7. Faceting
+# 8. Position Adjustments
+# 9. Labels
+# 10. Legends
+# 12. Zooming
+# 13. Themes
+# I would say that 1 - 3 are the most important.
+# ggplot cheat sheet: ggplot2/manuals/ggplot2-cheatsheet.pdf 
 
 # function ggplot() - creates the basis layer, it's just an empty grey zone, serving as the main area where we add other elements of the plot.
 # to point ggplot() to a source of data, enter the following code: 
