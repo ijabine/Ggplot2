@@ -97,8 +97,8 @@ ggplot(data = mtcars,aes(x = mpg,y = disp, color = cyl)) +
 # geom_vline	Reference lines: horizontal, vertical, and diagonal
 
 # Very usefull feature is to save a plot in a variable and then add elements as needed
-bar_plot <- ggplot(data = mtcars,aes(cyl))
-bar_plot <- plot_res + geom_bar(fill = 'red', colour = 'black')
+bar_plot <- ggplot(data = mtcars,aes(x = cyl))
+bar_plot <- bar_plot + geom_bar(fill = 'red', colour = 'black')
 # to visualize the plot just call the variable bar_plot:
 bar_plot
 
