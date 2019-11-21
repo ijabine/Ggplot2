@@ -36,7 +36,10 @@ ggplot(data = mtcars,aes(x = mpg,y = disp)) +
 # To change the size, color and shape of the points, add color, size and shape as aes() arguments:
 mtcars$cyl <- factor(mtcars$cyl)
 ggplot(data = mtcars,aes(x = mpg,y = disp, shape = cyl, color = gear, size = carb)) +
-  geom_point() # in this example the shape of points will depend on number of cylenders, color on the number of gears and size on carb variables.
+  geom_point() # in this example the shape of points will depend on number of cylenders, color on the number of gears and size on carb variables. When we specify various aesthetics elements in ggplot() main function they become default for all subsequent layers. However, we can define aesthetics only for "geom_point" layer like this (the result will look the same as the previous plot):
+
+ggplot(data = mtcars) +
+  geom_point(aes(x = mpg,y = disp, shape = cyl, color = gear, size = carb))
 
 # less crammed plot, with fewer elements, perhaps more readable:
 ggplot(data = mtcars,aes(x = mpg,y = disp, color = cyl)) +
@@ -103,7 +106,34 @@ bar_plot <- bar_plot + geom_bar(fill = 'red', colour = 'black')
 bar_plot
 
 
+# 4. Coordinate system: to understand what is depicted on the plot it must have a coordinate system. Cartesian coordinate system (combining y and x dimensions orthogonally) is probably the most widely used one. Using coord_ family of function you can do various manipulations with the coordinate system 
+# Here is a list of coord_ functions:
 
+# coord_cartesian	Cartesian coordinates
+# coord_equal	Cartesian coordinates with fixed "aspect ratio"
+# coord_fixed	Cartesian coordinates with fixed "aspect ratio"
+# coord_flip	Cartesian coordinates with x and y flipped
+# coord_map	Map projections
+# coord_polar	Polar coordinates
+# coord_quickmap	Map projections
+# coord_sf	Visualise sf objects
+# coord_trans	Transformed Cartesian coordinate system
+
+# We can zoom in and out data by calling coord_cartesian(xlim = lim, ylim = lim):
+
+base_plot <- ggplot(data = mtcars,aes(x = mpg,y = disp)) +
+  geom_point()
+base_plot + coord_cartesian(xlim = 20, ylim = 150) # Please note by zooming we are not changing the underlying data, but just their depiction.
+
+
+
+
+
+# 5. Stats 
+
+
+
+# 6. Scales - 
 
 imdb_5000 <- read_csv("data/imdb_5000.csv")
 str(imdb_5000)
